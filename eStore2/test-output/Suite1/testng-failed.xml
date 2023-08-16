@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite1]">
+  <test name="TaxedItem(failed)">
+    <classes>
+      <class name="com.estore.tests.TaxedItem">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="taxedItem"/>
+        </methods>
+      </class> <!-- com.estore.tests.TaxedItem -->
+      <class name="com.estore.tests.DeliveryOnly">
+        <methods>
+          <include name="tearDown"/>
+          <include name="beforeSuite"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- com.estore.tests.DeliveryOnly -->
+    </classes>
+  </test> <!-- TaxedItem(failed) -->
+</suite> <!-- Failed suite [Suite1] -->

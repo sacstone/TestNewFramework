@@ -1,0 +1,595 @@
+package com.estore.testcases;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.estore.pages.SpinternetCart;
+import com.estore.pages.SpinternetCheckoutBillingPage;
+import com.estore.pages.SpinternetCheckoutDelivery;
+import com.estore.pages.SpinternetCheckoutMethod;
+import com.estore.pages.SpinternetCheckoutPageOne;
+import com.estore.pages.SpinternetCheckoutPageTwo;
+import com.estore.pages.SpinternetDefaultStoreHome;
+import com.estore.pages.SpinternetHome;
+import com.estore.pages.SpinternetLogin;
+import com.estore.pages.SpinternetOrderConfirmation;
+import com.estore.pages.SpinternetOrderReviewPage;
+import com.estore.pages.SpinternetStoreFinderResults;
+import com.estore.pages.SpinternetStoreProductDetails;
+import com.estore.pages.SpinternetStoreProducts;
+import com.estore.pages.TMCreateOrder;
+import com.estore.util.TestBase;
+
+public class ECAPlaceOrders extends TestBase {
+
+//	@Test
+	public void placeOrderCE() throws InterruptedException {
+		// bundle
+		driver.get("https://shop-admin-qa.ecomm.wholefoodsmarket.com/spinternet/e-commerce/orderList.aspx");
+
+		Thread.sleep(2000);
+
+		SpinternetLogin sp = new SpinternetLogin(driver);
+
+		sp.userName().sendKeys(testConfig.getProperty("username"));
+
+		sp.nextButton().click();
+		Thread.sleep(1000);
+		sp.password().sendKeys(testConfig.getProperty("password"));
+		Thread.sleep(1000);
+		sp.signOnButton().click();
+		Thread.sleep(2000);
+
+		SpinternetHome sh = new SpinternetHome(driver);
+		Thread.sleep(2000);
+
+		WebElement element = driver.findElement(By.xpath("//INPUT[@id='ctl00_ContentPlaceHolder1_chkAgree']"));
+
+		((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", element);
+
+		sp.agreementCheckbox().click();
+		Thread.sleep(1000);
+		sp.okayButton().click();
+		Thread.sleep(1000);
+
+		sh.clickOnFulfillmnet().click();
+		Thread.sleep(2000);
+		sh.clickOnOrderOperation("Create Order");
+		Thread.sleep(2000);
+
+		String winHandleBefore = driver.getWindowHandle();
+
+		Thread.sleep(2000);
+
+		TMCreateOrder order = new TMCreateOrder(driver);
+
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		order.selectCountry("USA");
+		Thread.sleep(2000);
+		order.selectState("California");
+		Thread.sleep(2000);
+		order.goButton().click();
+		Thread.sleep(2000);
+
+		SpinternetStoreFinderResults stores = new SpinternetStoreFinderResults(driver);
+
+		stores.clickOnPlaceOrderLink("XOX");
+		Thread.sleep(2000);
+
+		 SpinternetDefaultStoreHome sphome = new
+		 SpinternetDefaultStoreHome(driver);
+		
+		 sphome.clickOnProduct("Catalog A");
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetStoreProducts sproducts = new
+		 SpinternetStoreProducts(driver);
+		
+		 sproducts.clickOnProduct("BM-1");
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetStoreProductDetails details = new
+		 SpinternetStoreProductDetails(driver);
+		
+		 details.addToShoppingCart().click();
+		 Thread.sleep(1000);
+		
+		 details.proceedToCheckout().click();
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetCart cart = new SpinternetCart(driver);
+		
+		 cart.proceedToCheckout().click();
+		
+		 Thread.sleep(2000);
+		 SpinternetCheckoutPageOne ckone = new
+		 SpinternetCheckoutPageOne(driver);
+		
+		 Assert.assertTrue(ckone.guestCheckoutRadioButtion().isSelected(),
+		 "Guest checkout Radio button is not selected");
+		
+		 ckone.email().sendKeys("EstoreAutoTest@wholefoods.com");
+		 ckone.continueButton().click();
+		
+		 Thread.sleep(1000);
+		
+		 SpinternetCheckoutPageTwo cktwo = new
+		 SpinternetCheckoutPageTwo(driver);
+		
+		 SpinternetCheckoutMethod ckmethod = new
+		 SpinternetCheckoutMethod(driver);
+		
+		 ckmethod.deliveryOption().click();
+		 ckmethod.continueButton().click();
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetCheckoutDelivery delivery = new
+		 SpinternetCheckoutDelivery(driver);
+		 delivery.firstName().sendKeys("Eileen");
+		 delivery.lastName().sendKeys("Jones");
+		 delivery.address1().sendKeys("3 Main St");
+		 delivery.address2().sendKeys("APT#1234");
+		 delivery.city().sendKeys("Burlington");
+		 delivery.selectCountry("USA");
+		 delivery.selectState("Massachusetts");
+		 delivery.zip().clear();
+		 Thread.sleep(1000);
+		 delivery.zip().sendKeys("01803");
+		 Thread.sleep(1000);
+		 delivery.phone().sendKeys("5124454545");
+		 Thread.sleep(2000);
+		 delivery.deliveryDate(5);
+		 Thread.sleep(1000);
+		 delivery.deliveryTime(3);
+		 Thread.sleep(1000);
+		 delivery.continueButton().click();
+		 Thread.sleep(1000);
+		 driver.findElement(By.xpath("//input[@id='ctl00_cph_main_content_chkBillingSameAsDelivery']")).click();
+		 Thread.sleep(1000);
+		 delivery.continueButton().click();
+		 Thread.sleep(1000);
+		
+		 SpinternetOrderReviewPage review = new
+		 SpinternetOrderReviewPage(driver);
+		 driver.switchTo().frame(driver.findElement(By.id("vantiv-payframe")));
+		 review.cardNumber().sendKeys("4457010000000009");
+		 review.cardExpirationMonth();
+		 review.cardExpirationYear();
+		 review.cvv().sendKeys("349");
+		 Thread.sleep(1000);
+		 driver.switchTo().defaultContent();
+		 review.additionalOrderNotes().sendKeys("Automation Testing of TM notes in Order Review Page");
+		 review.placeOrderWithCC().click();
+		 Thread.sleep(5000);
+		 SpinternetOrderConfirmation confirmOrder = new
+		 SpinternetOrderConfirmation(driver);
+		 Assert.assertTrue(confirmOrder.orderNumber().getText().contentEquals("Your Order # is:"),"Order was not placed");
+		
+		 confirmOrder.continueShopping().click();
+		
+		 /////////////////////////////////////////////////////////////////////////////////////////////////
+		 // bundle+standalone
+		 SpinternetDefaultStoreHome sphome1 = new
+		 SpinternetDefaultStoreHome(driver);
+		
+		 sphome1.clickOnProduct("Catalog A");
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetStoreProducts sproducts1 = new
+		 SpinternetStoreProducts(driver);
+		
+		 sproducts1.clickOnProduct("BM-1");
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetStoreProductDetails details1 = new
+		 SpinternetStoreProductDetails(driver);
+		
+		 details1.addToShoppingCart().click();
+		 Thread.sleep(1000);
+		
+		 details1.clickCategory("October Item");
+		 Thread.sleep(2000);
+		
+		 SpinternetStoreProducts sproducts2 = new
+		 SpinternetStoreProducts(driver);
+		
+		 sproducts2.clickOnProduct1("October Test");
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetStoreProductDetails details2 = new
+		 SpinternetStoreProductDetails(driver);
+		
+		 details2.addToShoppingCart().click();
+		 Thread.sleep(1000);
+		
+		 Alert alert = driver.switchTo().alert();
+		
+		 alert.accept();
+		
+		 Thread.sleep(1000);
+		
+		 details2.proceedToCheckout().click();
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetCart cart1 = new SpinternetCart(driver);
+		
+		 cart1.proceedToCheckout().click();
+		
+		 Thread.sleep(2000);
+		
+		 Thread.sleep(2000);
+		 SpinternetCheckoutPageOne ckone1 = new
+		 SpinternetCheckoutPageOne(driver);
+		
+		 Assert.assertTrue(ckone1.guestCheckoutRadioButtion().isSelected(),
+		 "Guest checkout Radio button is not selected");
+		
+		 ckone1.email().sendKeys("EstoreAutoTest@wholefoods.com");
+		 ckone1.continueButton().click();
+		
+		 Thread.sleep(1000);
+		
+		 SpinternetCheckoutPageTwo cktwo1 = new
+		 SpinternetCheckoutPageTwo(driver);
+		 cktwo1.pickupDate();
+		 cktwo1.pickupTime();
+		 cktwo1.continueButton().click();
+		
+		 Thread.sleep(1000);
+		
+		 SpinternetCheckoutBillingPage billing = new
+		 SpinternetCheckoutBillingPage(driver);
+		
+		 billing.firstName().sendKeys("John");
+		 billing.lastName().sendKeys("Smith");
+		 billing.zip().sendKeys("01803");
+		 billing.email().sendKeys("EstoreAutoTest@wholefoods.com");
+		 billing.phone().sendKeys("5123227867");
+		
+		 billing.continueButton().click();
+		 Thread.sleep(1000);
+		
+		 Thread.sleep(1000);
+		 SpinternetOrderReviewPage re1 = new
+		 SpinternetOrderReviewPage(driver);
+		
+		 re1.placeOrderButton().click();
+		
+		 Thread.sleep(5000);
+		 SpinternetOrderConfirmation confirmOrder1 = new
+		 SpinternetOrderConfirmation(driver);
+		 Assert.assertTrue(confirmOrder1.orderNumber().getText().contentEquals("Your Order # is:"),
+		 "Order was not placed");
+		
+		 confirmOrder1.continueShopping().click();
+		
+		 Thread.sleep(1000);
+		 ///////////////////////////////////////////////////////////////////////////////////////////////
+		 // standalone
+		 SpinternetDefaultStoreHome sphome2 = new
+		 SpinternetDefaultStoreHome(driver);
+		
+		 sphome2.clickOnProduct("Catalog B");
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetStoreProducts sproducts3 = new
+		 SpinternetStoreProducts(driver);
+		
+		 sproducts3.clickOnProduct("MF-1");
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetStoreProductDetails details4 = new
+		 SpinternetStoreProductDetails(driver);
+		
+		 details4.addToShoppingCart().click();
+		 Thread.sleep(1000);
+		
+		 details4.proceedToCheckout().click();
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetCart cart3 = new SpinternetCart(driver);
+		
+		 cart3.proceedToCheckout().click();
+		
+		 Thread.sleep(2000);
+		
+		 SpinternetCheckoutPageOne ckone3 = new
+		 SpinternetCheckoutPageOne(driver);
+		
+		 Assert.assertTrue(ckone3.guestCheckoutRadioButtion().isSelected(),
+		 "Guest checkout Radio button is not selected");
+		
+		 ckone3.email().sendKeys("EstoreAutoTest@wholefoods.com");
+		 ckone3.continueButton().click();
+		
+		 Thread.sleep(1000);
+		
+		 SpinternetCheckoutPageTwo cktwo2 = new
+		 SpinternetCheckoutPageTwo(driver);
+		 cktwo2.pickupDate();
+		 cktwo2.pickupTime();
+		 cktwo2.continueButton().click();
+		
+		 Thread.sleep(1000);
+		
+		 SpinternetCheckoutBillingPage billing1 = new
+		 SpinternetCheckoutBillingPage(driver);
+		
+		 billing1.firstName().sendKeys("Eileen");
+		 billing1.lastName().sendKeys("Jones");
+		 billing1.address1().sendKeys("3 Main St");
+		 billing1.city().sendKeys("Burlington");
+		 billing1.selectCountry("USA");
+		 billing1.selectState("Massachusetts");
+		 billing1.zip().clear();
+		 Thread.sleep(1000);
+		 billing1.zip().sendKeys("01803");
+		 Thread.sleep(1000);
+		 billing1.phone().sendKeys("5124454545");
+		
+		 billing1.continueButton().click();
+		 Thread.sleep(1000);
+		
+		 SpinternetOrderReviewPage review2 = new
+		 SpinternetOrderReviewPage(driver);
+		 driver.switchTo().frame(driver.findElement(By.id("vantiv-payframe")));
+		 review2.cardNumber().sendKeys("4457010000000009");
+		 review2.cardExpirationMonth();
+		 review2.cardExpirationYear();
+		 review2.cvv().sendKeys("349");
+		 Thread.sleep(1000);
+		 driver.switchTo().defaultContent();
+		 review2.additionalOrderNotes().sendKeys("Automation Testing of TM notes in Order Review Page");
+		 review2.placeOrderWithCC().click();
+		 Thread.sleep(5000);
+		 SpinternetOrderConfirmation confirmOrder2 = new
+		 SpinternetOrderConfirmation(driver);
+		 Assert.assertTrue(confirmOrder2.orderNumber().getText().contentEquals("Your Order # is:"),
+		 "Order was not placed");
+		
+		 confirmOrder2.continueShopping().click();
+		 Thread.sleep(1000);
+		
+		 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//		
+//		 // bundle + stand alone
+//		 SpinternetDefaultStoreHome sphome3 = new
+//		 SpinternetDefaultStoreHome(driver);
+//		
+//	//	 sphome3.clickOnProduct("Catalog G");
+//		 sphome3.clickOnProduct("Catalog A");
+//		
+//		 Thread.sleep(2000);
+//		
+//		 SpinternetStoreProducts sproducts4 = new
+//		 SpinternetStoreProducts(driver);
+//		
+//		 sproducts4.clickOnProduct("TC-1");
+//		
+//		 Thread.sleep(2000);
+//		
+//		 SpinternetStoreProductDetails details5 = new
+//		 SpinternetStoreProductDetails(driver);
+//		
+//		 details5.addToShoppingCart().click();
+//		 Thread.sleep(1000);
+//		
+//		 details5.clickCategory("Catalog A");
+//		
+//		 Thread.sleep(2000);
+//		
+//		 SpinternetStoreProducts sproducts5 = new
+//		 SpinternetStoreProducts(driver);
+//		
+//		 sproducts5.clickOnProduct1("BM-1");
+//		
+//		 Thread.sleep(2000);
+//		
+//		 SpinternetStoreProductDetails details6 = new
+//		 SpinternetStoreProductDetails(driver);
+//		
+//		 details6.addToShoppingCart().click();
+//		 Thread.sleep(1000);
+//		
+//		 details6.proceedToCheckout().click();
+//		
+//		 Thread.sleep(2000);
+//		
+//		 SpinternetCart cart4 = new SpinternetCart(driver);
+//		
+//		 cart4.proceedToCheckout().click();
+//		
+//		 Thread.sleep(2000);
+//		
+//		 SpinternetCheckoutPageOne ckone4 = new
+//		 SpinternetCheckoutPageOne(driver);
+//		
+//		 Assert.assertTrue(ckone4.guestCheckoutRadioButtion().isSelected(),
+//		 "Guest checkout Radio button is not selected");
+//		
+//		 ckone4.email().sendKeys("EstoreAutoTest@wholefoods.com");
+//		 ckone4.continueButton().click();
+//		
+//		 Thread.sleep(1000);
+//		
+//		 SpinternetCheckoutMethod ckmethod1 = new
+//		 SpinternetCheckoutMethod(driver);
+//		
+//		 ckmethod1.pickupOption().click();
+//		
+//		 ckmethod1.continueButton().click();
+//		
+//		 Thread.sleep(1000);
+//		
+//		 SpinternetCheckoutPageTwo cktwo3 = new
+//		 SpinternetCheckoutPageTwo(driver);
+//		 cktwo3.pickupDate();
+//		 cktwo3.pickupTime();
+//		 cktwo3.continueButton().click();
+//		
+//		 Thread.sleep(1000);
+//		
+//		 SpinternetCheckoutBillingPage billing2 = new
+//		 SpinternetCheckoutBillingPage(driver);
+//		
+//		 billing2.payInStoreCheckbox().click();
+//		
+//		 billing2.firstName().sendKeys("John");
+//		 billing2.lastName().sendKeys("Smith");
+//		 billing2.zip().clear();
+//		 Thread.sleep(1000);
+//		 billing2.zip().sendKeys("01803");
+//		 Thread.sleep(1000);
+//		 billing2.email().sendKeys("EstoreAutoTest@wholefoods.com");
+//		
+//		 billing2.phone().sendKeys("5124454545");
+//		
+//		 billing2.continueButton().click();
+//		 Thread.sleep(1000);
+//		
+//		 SpinternetOrderReviewPage review3 = new
+//		 SpinternetOrderReviewPage(driver);
+//		 driver.switchTo().frame(driver.findElement(By.id("vantiv-payframe")));
+//		 review3.cardNumber().sendKeys("4457010000000009");
+//		 review3.cardExpirationMonth();
+//		 review3.cardExpirationYear();
+//		 review3.cvv().sendKeys("349");
+//		 Thread.sleep(1000);
+//		 driver.switchTo().defaultContent();
+//		 review3.additionalOrderNotes().sendKeys("Automation Testing of TM notes in Order Review Page");
+//		 review3.placeOrderWithCC().click();
+//		 Thread.sleep(5000);
+//		 SpinternetOrderConfirmation confirmOrder3 = new
+//		 SpinternetOrderConfirmation(driver);
+//		 Assert.assertTrue(confirmOrder3.orderNumber().getText().contentEquals("Your Order # is:"),
+//		 "Order was not placed");
+//		
+//		 confirmOrder3.continueShopping().click();
+//		 Thread.sleep(1000);
+
+		///////////////////////////////////////////////////////////////////////////////////////////////////////////
+		// stand alone
+
+		SpinternetDefaultStoreHome sphome4 = new SpinternetDefaultStoreHome(driver);
+
+		sphome4.clickOnProduct("Catalog C");
+
+		Thread.sleep(2000);
+
+		SpinternetStoreProducts sproducts6 = new SpinternetStoreProducts(driver);
+
+		sproducts6.clickOnProduct("QTY-1");
+
+		Thread.sleep(2000);
+
+		SpinternetStoreProductDetails details7 = new SpinternetStoreProductDetails(driver);
+
+		details7.addToShoppingCart().click();
+		Thread.sleep(1000);
+
+		details7.proceedToCheckout().click();
+
+		Thread.sleep(2000);
+
+		SpinternetCart cart5 = new SpinternetCart(driver);
+
+		cart5.proceedToCheckout().click();
+
+		Thread.sleep(2000);
+
+		SpinternetCheckoutPageOne ckone5 = new SpinternetCheckoutPageOne(driver);
+
+		Assert.assertTrue(ckone5.guestCheckoutRadioButtion().isSelected(),
+				"Guest checkout Radio button is not selected");
+
+		ckone5.email().sendKeys("EstoreAutoTest@wholefoods.com");
+		ckone5.continueButton().click();
+
+		Thread.sleep(1000);
+
+		SpinternetCheckoutMethod ckmethod2 = new SpinternetCheckoutMethod(driver);
+
+		ckmethod2.pickupOption().click();
+
+		ckmethod2.continueButton().click();
+
+		Thread.sleep(1000);
+
+		SpinternetCheckoutPageTwo cktwo4 = new SpinternetCheckoutPageTwo(driver);
+		cktwo4.pickupDate();
+		cktwo4.pickupTime();
+		cktwo4.continueButton().click();
+
+		Thread.sleep(1000);
+
+		SpinternetCheckoutBillingPage billing3 = new SpinternetCheckoutBillingPage(driver);
+
+		billing3.firstName().sendKeys("John");
+		billing3.lastName().sendKeys("Smith");
+		billing3.address1().sendKeys("1 Main St");
+		billing3.city().sendKeys("Burlington");
+		billing3.selectCountry("USA");
+		billing3.selectState("Massachusetts");
+		billing3.zip().clear();
+		Thread.sleep(1000);
+		billing3.zip().sendKeys("01803");
+		Thread.sleep(1000);
+		billing3.phone().sendKeys("5124454545");
+
+		billing3.continueButton().click();
+		Thread.sleep(1000);
+
+		SpinternetOrderReviewPage review4 = new SpinternetOrderReviewPage(driver);
+		driver.switchTo().frame(driver.findElement(By.id("vantiv-payframe")));
+		review4.cardNumber().sendKeys("4457010000000009");
+		review4.cardExpirationMonth();
+		review4.cardExpirationYear();
+		review4.cvv().sendKeys("349");
+		Thread.sleep(1000);
+		driver.switchTo().defaultContent();
+		review4.additionalOrderNotes().sendKeys("Automation Testing of TM notes in Order Review Page");
+		review4.placeOrderWithCC().click();
+		Thread.sleep(5000);
+		SpinternetOrderConfirmation confirmOrder4 = new SpinternetOrderConfirmation(driver);
+		Assert.assertTrue(confirmOrder4.orderNumber().getText().contentEquals("Your Order # is:"),
+				"Order was not placed");
+
+		confirmOrder4.continueShopping().click();
+		Thread.sleep(1000);
+
+	}
+
+
+	@Test
+	public void placeOrderLMR() throws InterruptedException{
+		
+		String newUrl = driver.getCurrentUrl();
+		
+		String newUrl1 = newUrl.substring(0, newUrl.length()-3);
+		
+		driver.get(driver.getCurrentUrl().substring(0, newUrl.length()-3)+"LMR");
+		
+		Thread.sleep(10000);
+
+	
+	
+}
+
+}

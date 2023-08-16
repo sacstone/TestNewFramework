@@ -1,0 +1,8 @@
+browser=chrome
+#baseUrl=https://d10.wholefoodsmarket.com/shop/XOX
+baseUrl=https://shop-admin-qa.ecomm.wholefoodsmarket.com
+spinternetUrl=https://shop-admin-qa.ecomm.wholefoodsmarket.com/spinternet/e-commerce/orderList.aspx
+mastertestdatafile = MasterTestDataFile.xlsx
+testdatasheet=TestCaseDataSets
+username=2091092@wholefoods.com
+password=Sanramon3624$.

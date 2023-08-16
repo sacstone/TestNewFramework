@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Regression" parallel="tests" thread-count="1" verbose="1"
+	configfailurepolicy="skip">
+
+	<test name="eStoreRegression">
+		<classes>
+
+			
+			<class name="com.estore.testcases.ZeroInventory" />
+			<class name="com.estore.testcases.DeliveryOnly" />
+			<class name="com.estore.testcases.ContingentDiscountWithCoupon" />
+			<class name="com.estore.testcases.GroupedItemCommonSetUp" />
+			<class name="com.estore.testcases.GroupedItemVariableWeigt" />
+			<class name="com.estore.testcases.ImpliedDiscount20Percent" />
+			<class name="com.estore.testcases.MinimumQuantityItem" />
+			<class name="com.estore.testcases.TaxedItem" />
+			<class name="com.estore.testcases.VariableWeightItem" />
+
+		</classes>
+	</test>
+
+</suite>

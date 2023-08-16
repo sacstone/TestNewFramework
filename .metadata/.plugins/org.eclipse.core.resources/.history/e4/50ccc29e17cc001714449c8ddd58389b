@@ -1,0 +1,3 @@
+com/wfm/testcases/SiteSearch.class
+com/wfm/testcases/AuthenticatedChangeStore.class
+com/wfm/testcases/ChangeStoreForAuthenticatedUser.class

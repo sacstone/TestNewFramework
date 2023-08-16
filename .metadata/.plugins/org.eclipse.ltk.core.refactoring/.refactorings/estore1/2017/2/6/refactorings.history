@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;variableWeightItem.java&apos; to &apos;eStore1/src/test/java/com.estore.tests&apos;&#x0A;- Original project: &apos;eStore1&apos;&#x0A;- Destination element: &apos;eStore1/src/test/java/com.estore.tests&apos;&#x0A;- Original element: &apos;com.estore.tests.variableWeightItem.java&apos;" description="Copy compilation unit" destination="/src\/test\/java&lt;com.estore.tests" element1="/src\/test\/java&lt;com.estore.tests{variableWeightItem.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1486396726593" units="1" version="1.0"/>
+</session>

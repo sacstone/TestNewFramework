@@ -1,0 +1,44 @@
+package com.estore.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+public class CategoryPage extends PageBase
+{
+	
+	
+	private String categoryUrl;
+	
+/*	public CategoryPage(WebDriver driver) {
+		
+		super(driver);
+	}
+	*/
+	
+	public CategoryPage(WebDriver driver, String categoryUrl) {
+		
+		super(driver);
+		this.categoryUrl = categoryUrl;
+	}
+	
+
+	
+	public String getTitle() 
+	{
+		return driver.getTitle();
+		
+	}
+	
+	public ProductDetailsPage clickItem()
+	
+	{	driver.get(categoryUrl);
+		driver.findElement(By.xpath("//li[@data-product-name='$100 item']")).click();
+		
+		return new ProductDetailsPage(driver);
+		
+	}
+	
+	
+	
+
+}

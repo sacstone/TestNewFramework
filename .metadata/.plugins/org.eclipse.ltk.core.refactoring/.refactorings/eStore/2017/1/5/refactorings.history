@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.estore.tests.NewTest&apos; to &apos;PickUpTest&apos;&#x0A;- Original project: &apos;eStore&apos;&#x0A;- Original element: &apos;com.estore.tests.NewTest&apos;&#x0A;- Renamed element: &apos;com.estore.tests.PickUpTest&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;NewTest&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/test\/java&lt;com.estore.tests{NewTest.java[NewTest" matchStrategy="1" name="PickUpTest" qualified="false" references="true" similarDeclarations="false" stamp="1485804095907" textual="false" version="1.0"/>
+</session>

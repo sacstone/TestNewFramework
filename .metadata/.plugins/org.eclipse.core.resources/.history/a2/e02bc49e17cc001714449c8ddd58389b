@@ -1,0 +1,17 @@
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/Registration.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/Login.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/HeaderStoreSearch.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/UnauthenticatedStoreSelect.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/RegisteringWithSameEmailPhone.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/TestBase.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/CheckHeader.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/EstoreSecureCheck.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/ChangeStoreForAuthenticatedUser.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/PathsToEstore.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/SiteSearch.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/CreateShoppingList.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/EditRecipeBox.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/AuthenticatedRecipePage.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/AuthenticatedChangeStore.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/UnauthenticatedRecipePage.java
+/Users/rameshdhanekula/git1/com.wfm.d8/src/test/java/com/wfm/testcases/EstoreSSLSelectedStore.java

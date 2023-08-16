@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite A">
+
+<test name="Test Availability Process">
+    <classes>
+    
+          <class name="com.estore.tests.DeliveryOnly.class" ></class>  
+   <!--   <class name="com.spicev3.availability.WIthRegionThresholdSetting" ></class> -->
+    </classes>
+</test>
+
+</suite>
+

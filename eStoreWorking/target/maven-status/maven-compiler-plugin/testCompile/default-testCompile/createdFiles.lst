@@ -1,0 +1,6 @@
+com/estore/tests/TaxedItem.class
+com/gurock/testrail/APIClient.class
+com/estore/tests/VariableWeightItem.class
+com/gurock/testrail/TestRailManager.class
+com/gurock/testrail/APIException.class
+com/estore/tests/DeliveryOnly.class

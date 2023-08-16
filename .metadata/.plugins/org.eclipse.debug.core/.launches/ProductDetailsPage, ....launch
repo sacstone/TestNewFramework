@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.testng.eclipse.launchconfig">
+<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.testng.remote.RemoteTestNG"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="com.wfm.java"/>
+<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+<mapAttribute key="org.testng.eclipse.ALL_CLASS_METHODS"/>
+<listAttribute key="org.testng.eclipse.CLASS_TEST_LIST">
+<listEntry value="com.estore.util.ExcelHelper"/>
+<listEntry value="com.estore.pages.OnlineOrdering"/>
+<listEntry value="com.estore.testcases.DeliveryTimeOverLapTest"/>
+<listEntry value="com.estore.testcases.SpinternetGroupComponentShouldListOneTimeOnly"/>
+<listEntry value="com.estore.testcases.SpinternetCompleteThisOrderPopup"/>
+<listEntry value="com.estore.testcases.MyStore"/>
+<listEntry value="com.estore.testcases.SpinternetHideCCInfoForOrderConvertedToPayInStore"/>
+<listEntry value="com.estore.pages.SpinternetOrderList"/>
+<listEntry value="com.estore.testcases.BMWithSellableComponents"/>
+<listEntry value="com.estore.testcases.ContingentPercentDiscount"/>
+<listEntry value="com.estore.pages.OrderConfirmation"/>
+<listEntry value="com.estore.testcases.SpinternetGroupComponentsHaveZeroQty"/>
+<listEntry value="com.estore.pages.SpinternetOrderConfirmation"/>
+<listEntry value="com.estore.testcases.DeliveryOnly"/>
+<listEntry value="com.estore.util.DataDrivenHelper"/>
+<listEntry value="com.estore.testcases.SpinternetPricedFromOnAllGroupTypes"/>
+<listEntry value="com.estore.testcases.TaxedItem"/>
+<listEntry value="com.estore.pages.SpinternetCustomerReceiptPage"/>
+<listEntry value="com.estore.testcases.ContingentDiscountWithCoupon"/>
+<listEntry value="com.estore.util.StringHandling"/>
+<listEntry value="com.estore.pages.SpinternetStoreFinderResults"/>
+<listEntry value="com.estore.pages.SpinternetOrderReviewPage"/>
+<listEntry value="com.estore.pages.SpinternetDefaultStoreHome"/>
+<listEntry value="com.estore.testcases.SpinternetUsernameOnOrderDetailsPage"/>
+<listEntry value="com.estore.testcases.PlaceOrderForKori"/>
+<listEntry value="com.estore.pages.Cart"/>
+<listEntry value="com.estore.pages.CategoryPage"/>
+<listEntry value="com.estore.testcases.ZeroInventory"/>
+<listEntry value="com.estore.testcases.SpinternetCheckTMNotes"/>
+<listEntry value="com.estore.pages.PageBase"/>
+<listEntry value="com.estore.pages.SpinternetLogin"/>
+<listEntry value="com.estore.testcases.SpinternetPricedFromIsStoreSpecific"/>
+<listEntry value="com.gurock.testrail.APIException"/>
+<listEntry value="com.estore.pages.CheckOutStepThree"/>
+<listEntry value="com.estore.testcases.VariableWeightItem"/>
+<listEntry value="com.estore.pages.SpinternetCart"/>
+<listEntry value="com.estore.testcases.BMNonSellableComponents"/>
+<listEntry value="com.estore.testcases.SpinternetSearchOrder"/>
+<listEntry value="com.estore.util.WebDriverHelper"/>
+<listEntry value="com.estore.testcases.GroupedItemVariableWeigt"/>
+<listEntry value="com.estore.pages.SpinternetStoreProductDetails"/>
+<listEntry value="com.estore.pages.CategoryPageOne"/>
+<listEntry value="com.estore.pages.SpinternetCheckoutDelivery"/>
+<listEntry value="com.estore.testcases.ECAPlaceOrders"/>
+<listEntry value="com.estore.pages.CheckOutStepTwo"/>
+<listEntry value="com.estore.pages.SpinternetProductsList"/>
+<listEntry value="com.estore.pages.SpinternetRegionalInventoryReport"/>
+<listEntry value="com.estore.pages.SpinternetCheckoutMethod"/>
+<listEntry value="com.estore.pages.TMCreateOrder"/>
+<listEntry value="com.estore.pages.SpinternetOrderTicketPage"/>
+<listEntry value="com.estore.testcases.SpinternetSPIN149"/>
+<listEntry value="com.estore.testcases.CatalogExpectToFail"/>
+<listEntry value="com.estore.pages.SpinterneteStoreReportManager"/>
+<listEntry value="com.estore.pages.SpinternetStoreProducts"/>
+<listEntry value="com.estore.testcases.SpinternetReportsRegionalInventory"/>
+<listEntry value="com.estore.testcases.GroupedItemCommonSetUp"/>
+<listEntry value="com.estore.pages.SpinternetCheckoutPageTwo"/>
+<listEntry value="com.estore.pages.SearchResults"/>
+<listEntry value="com.estore.pages.ShopChoose"/>
+<listEntry value="com.estore.testcases.ImpliedDiscount20Percent"/>
+<listEntry value="com.estore.testcases.Spin69"/>
+<listEntry value="com.estore.testcases.SpinternetCheckOrderDetail"/>
+<listEntry value="com.estore.testcases.SpinternetOrderDetailModifyQuantity"/>
+<listEntry value="com.estore.pages.SpinternetOrderDetail"/>
+<listEntry value="com.estore.pages.CheckOutStepOne"/>
+<listEntry value="com.estore.pages.Home"/>
+<listEntry value="com.estore.testcases.SpinternetCompleteOrder"/>
+<listEntry value="com.estore.testcases.BMwithComponentsInventoryZero"/>
+<listEntry value="com.estore.pages.SpinternetItems"/>
+<listEntry value="com.estore.util.TestBase"/>
+<listEntry value="com.gurock.testrail.APIClient"/>
+<listEntry value="com.estore.pages.StoreHomePage"/>
+<listEntry value="com.estore.testcases.MinimumQuantityItem"/>
+<listEntry value="com.estore.util.CaptureScreenshots"/>
+<listEntry value="com.estore.pages.SpinternetHome"/>
+<listEntry value="com.gurock.testrail.TestRailCall"/>
+<listEntry value="com.estore.testcases.SpinternetDisplayPricesForGroupMaster"/>
+<listEntry value="com.estore.pages.SpinternetEstoreReports"/>
+<listEntry value="com.estore.pages.ProductDetailsPage"/>
+<listEntry value="com.estore.pages.SpinternetCheckoutPageOne"/>
+<listEntry value="com.estore.pages.SpinternetCheckoutBillingPage"/>
+</listAttribute>
+<listAttribute key="org.testng.eclipse.METHOD_TEST_LIST"/>
+<listAttribute key="org.testng.eclipse.PACKAGE_TEST_LIST"/>
+<stringAttribute key="org.testng.eclipse.PRE_DEFINED_LISTENERS" value=""/>
+<intAttribute key="org.testng.eclipse.TYPE" value="1"/>
+</launchConfiguration>

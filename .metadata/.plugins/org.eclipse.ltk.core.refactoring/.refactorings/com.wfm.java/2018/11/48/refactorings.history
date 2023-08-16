@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.estore.pages.SpinternetDelivery&apos; to &apos;SpinternetCheckoutDelivery&apos;&#x0A;- Original project: &apos;com.wfm.java&apos;&#x0A;- Original element: &apos;com.estore.pages.SpinternetDelivery&apos;&#x0A;- Renamed element: &apos;com.estore.pages.SpinternetCheckoutDelivery&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SpinternetDelivery&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.estore.pages{SpinternetDelivery.java[SpinternetDelivery" matchStrategy="1" name="SpinternetCheckoutDelivery" qualified="false" references="true" similarDeclarations="false" stamp="1543423153708" textual="false" version="1.0"/>
+</session>

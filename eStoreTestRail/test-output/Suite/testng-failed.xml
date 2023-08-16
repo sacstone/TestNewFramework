@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <test name="eStoreRegression(failed)" parallel="tests">
+    <classes>
+      <class name="com.estore.tests.ContingentDisocuntWithCoupon">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="contingentCoupon"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.estore.tests.ContingentDisocuntWithCoupon -->
+      <class name="com.estore.tests.ImpliedDiscount20Percent">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="beforeSuite"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.estore.tests.ImpliedDiscount20Percent -->
+      <class name="com.estore.tests.MinimumQuantityItem">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.estore.tests.MinimumQuantityItem -->
+    </classes>
+  </test> <!-- eStoreRegression(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,838 @@
+sagePostgresColums:
+  sage_products:
+    additive_list:
+      sageType: Array(String)
+      sageName: additiveList
+    allergen_list:
+      sageType: Array(String)
+      sageName: allergenList
+    badge_list:
+      sageType: Array(Object)
+      sageName: badgeList
+      validKeys:
+        sageType: json
+        name:
+          sageType: String
+        slug:
+          sageType: String
+        description:
+          sageType : String
+        type: 
+           sageType: String
+        isClaim: 
+           sageType: boolean
+        computed:
+           sageType: boolean
+    brand:
+      sageType: String
+      sageName: brand      
+    certification_list:
+      sageType: Array(Object)
+      sageName: certificationlist
+      validKeys:
+        sageType: json
+        name:
+         sageType: String
+        slug:
+          sageType: String
+        description:
+          sageType: String
+        internalDescription:
+          sageType: String
+        computed:
+          sageType: Boolean
+        isClaim:
+          sageType: Boolean
+        certifier_List:
+           sageType: Array(String)
+        type:
+            sageType: String
+    diet_list:
+      sageType: Array(Object)
+      sageName: dietList
+      validKeys:
+        name:
+          sageType: String
+        slug:
+          sageType: String
+        description: 
+          sageType: String
+        internalDescription:
+          sageType: String
+        computed:
+          sageType: Boolean
+        isClaim:
+          sageType : Boolean
+    excercise_equivalence:  
+      sageType: Object
+      sageName: excerciseEquivalence
+      validKeys:
+        bike:
+          sageType: Number
+        dance:
+          sageType: Number
+        yoga:
+          sageType: Number
+        run:
+          sageType: Number
+        soccer:
+          sageType: Number
+        swim:
+          sageType: Number
+        jumpRose: 
+          sageType: Number
+    facility_allergen_list:
+      sageType: Array(String)
+      sageName: facilityAllergenList
+    ingredient_list:
+      sageType: Array(String)
+      sageName: ingredientList
+    modified:
+      sageType: Date
+      sageName: lastUpdated
+    name:
+      sageType: String
+      sageName: name
+    nutrient_density:
+      sageType: Number
+      sageName: nutrientDensity
+    nutrient_density_score:
+      sageType: String
+      sageName: nutrientDensityScore
+    nutrition_map:
+      sageType: Object
+      sageName: nutritionMap      
+      validKeys:
+        addedSugar:
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+        biotin:
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean          
+        calcium :
+        sageType: Object
+        validKeys:
+          uom:
+          sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean 
+        carbohydrates:
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+        chloride :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+        cholestrol :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean           
+        chromium :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean          
+        copper :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean 
+        fatCalories :
+        sageType: Object     
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+        fiber :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean    
+        folate :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean    
+        folicAcid :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean                  
+        insoluble :
+        sageType: Object        
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+        iodine :
+        sageType: Object        
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean
+        iron :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean
+        magnesium :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean
+        manganese :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean
+        molybdenum :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean 
+        monosaturatedFat :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+        niacin :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean
+        pantothenicAcid:
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean
+        phosphorous:
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean
+        polyunsaturatedFat :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+        pottassium :
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean 
+        sageName: protein
+        sageType: Object
+        validKeys:
+          uom:
+            sageType: String
+          perServing:
+            sageType: Number
+          perServingDisplay:
+            sageType: String
+          defaultDvp :
+            sageType: Number
+          defaultDvpDisplay :
+            sageType: String
+          fullDvp :
+            sageType: Number
+          isDense :
+            sageType: Boolean
+      sageName: riboflavin
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: saturatedFat
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+      sageName: selenium
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: sodium
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+      sageName: solubleFiber
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+      sageName: sugar
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+      sageName: sugarAlcohol
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+      sageName: thiamin
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean         
+      sageName: totalFat
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+      sageName: transFat
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+      sageName: vitaminA
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: vitaminB12
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: vitaminC
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: vitaminD
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: vitaminE
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: vitaminK
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: vitaminK
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean
+      sageName: zinc
+      validKeys:
+        uom:
+          sageType: String
+        perServing:
+          sageType: Number
+        perServingDisplay:
+          sageType: String
+        defaultDvp :
+          sageType: Number
+        defaultDvpDisplay :
+          sageType: String
+        fullDvp :
+          sageType: Number
+        isDense :
+          sageType: Boolean                                            
+    price_nutrient_ratio:
+      sageType: Number
+      sageName: priceNutrientRatio
+    price_nutrient_ratio_score:
+      sageType: String
+      sageName: priceNutrientRatioScore
+    serving_info:
+      sageType: Object
+      sageName: servingInfo
+      validKeys:
+        servingSize:
+          sageType: Number 
+        servingSizeUom:
+          sageType: String
+        servingsPerContainer:
+          sageType: Number
+        servingsPerContainerDisplay :
+          sageType: String
+        secondaryServingSize :
+          sageType: Number
+        secondaryServingSizeUom :
+          sageType: String
+        totalSize :
+          sageType: Number
+        totalSizeUom :  
+          sageType: String
+        secondaryTotalSize :
+          sageType: Number 
+        secondaryTotalSizeUom :
+          sageType: String  
+    supplement_list:
+          sageType: Array(Object)
+          sageName: supplementList          
+          validKeys:
+            name:
+              sageType: String
+            uom:
+              sageType: String
+            perServing:
+              sageType: String
+            componentList:
+              sageType: Array(Object)
+              validKeys:
+                name:
+                  sageType: String
+                uom:
+                  sageType: String
+                perServing:
+                 sageType: String   
+    topology:
+          sageType: Array(Object)
+          sageName: topology
+          validKeys:
+            category:
+              sageType: String
+            subCategory:
+              sageType: String 
+    upc :
+          sageType: Array(String)
+          sageName: upc                                                                                                                                        
+          
+          
+          
+                                                                     
+          
+          
+            
+          
+          
+              
+          
+             
+   
+   
+   
+      
+    
+    
+    
+        
+        
+          
+          
+     
+      
+  
+            
+        
+            
+       
+       
+       
+    
+    

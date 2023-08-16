@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <test name="eStoreRegression(failed)" parallel="tests">
+    <classes>
+      <class name="com.estore.tests.VariableWeightItem">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="variableWeight"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.estore.tests.VariableWeightItem -->
+      <class name="com.estore.tests.TaxedItem">
+        <methods>
+          <include name="beforeMethod"/>
+          <include name="beforeSuite"/>
+          <include name="taxedItem"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.estore.tests.TaxedItem -->
+      <class name="com.estore.tests.DeliveryOnly">
+        <methods>
+          <include name="deliveryOnly"/>
+          <include name="beforeMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.estore.tests.DeliveryOnly -->
+      <class name="com.estore.tests.ZeroInventory">
+        <methods>
+          <include name="zeroInventory"/>
+          <include name="beforeMethod"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.estore.tests.ZeroInventory -->
+    </classes>
+  </test> <!-- eStoreRegression(failed) -->
+</suite> <!-- Failed suite [Suite] -->

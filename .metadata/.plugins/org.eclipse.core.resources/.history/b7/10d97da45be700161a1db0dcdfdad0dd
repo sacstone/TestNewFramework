@@ -1,0 +1,38 @@
+package com.estore.tests;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
+import com.estore.pages.StoreHomePage;
+
+public class TestBase 
+{
+	protected WebDriver driver;
+	protected StoreHomePage storeHomePage;
+	
+	@BeforeMethod
+	public void beforeMethod() 
+	{
+		
+		System.setProperty("webdriver.chrome.driver.", "/Users/rameshdhanekula/Downloads/chromedriver");
+		ChromeDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		driver.get("https://stage.wholefoodsmarket.com/shop/xox/");
+		
+		StoreHomePage storeHomePage = new StoreHomePage(driver);
+
+	}
+	
+	@AfterMethod
+	public void afterMethod() 
+	{
+		// driver.quit();
+
+	}
+
+}

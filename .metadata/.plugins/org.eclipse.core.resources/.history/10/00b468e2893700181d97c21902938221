@@ -1,0 +1,61 @@
+package com.estore.pages;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
+
+public class SpinternetOrderReviewPage {
+
+	private WebDriver driver;
+
+	public SpinternetOrderReviewPage(WebDriver driver) {
+
+		this.driver = driver;
+	}
+	
+	public WebElement additionalOrderNotes(){
+		
+		return driver.findElement(By.xpath("//textarea[@name='ctl00$cphBody$txtOrderNotes']"));
+	}
+	
+	public WebElement placeOrderButton(){
+		
+		return driver.findElement(By.xpath("//input[@name='ctl00$cphBody$btnSkipCharge']"));
+	}
+	
+	public WebElement placeOrderWithCC(){
+		
+		return driver.findElement(By.xpath("//input[@name='btnPlaceOrder']"));
+	}
+	
+	
+	
+	public WebElement cardNumber(){
+		
+		
+		return driver.findElement(By.xpath("//input[@id='accountNumber']"));
+	}
+	
+	public void cardExpirationMonth(){
+		
+		Select year = new Select(driver.findElement(By.xpath("//select[@id='expMonth']")));
+		year.selectByIndex(3);
+	}
+	
+	public void cardExpirationYear(){
+		
+		Select year = new Select(driver.findElement(By.xpath("//select[@id='expYear']")));
+		year.selectByIndex(3);
+		
+		
+	}
+	
+	public WebElement cvv(){
+		
+		
+		return driver.findElement(By.xpath("//input[@id='cvv']"));
+		
+	}
+
+}

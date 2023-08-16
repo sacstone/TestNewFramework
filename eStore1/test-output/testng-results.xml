@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="89224" started-at="2017-04-04T18:22:31Z" finished-at="2017-04-04T18:24:00Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="89224" started-at="2017-04-04T18:22:31Z" finished-at="2017-04-04T18:24:00Z">
+      <class name="com.estore.tests.variableWeightItem">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.estore.tests.variableWeightItem@5034c75a]" name="beforeSuite" is-config="true" duration-ms="10" started-at="2017-04-04T13:22:31Z" finished-at="2017-04-04T13:22:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.estore.tests.variableWeightItem@5034c75a]" name="beforeMethod" is-config="true" duration-ms="25627" started-at="2017-04-04T13:22:31Z" finished-at="2017-04-04T13:22:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="variableWeight()[pri:0, instance:com.estore.tests.variableWeightItem@5034c75a]" name="variableWeight" duration-ms="62931" started-at="2017-04-04T13:22:56Z" finished-at="2017-04-04T13:23:59Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- variableWeight -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.estore.tests.variableWeightItem@5034c75a]" name="tearDown" is-config="true" duration-ms="647" started-at="2017-04-04T13:23:59Z" finished-at="2017-04-04T13:24:00Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=variableWeight status=SUCCESS method=variableWeightItem.variableWeight()[pri:0, instance:com.estore.tests.variableWeightItem@5034c75a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.estore.tests.variableWeightItem -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

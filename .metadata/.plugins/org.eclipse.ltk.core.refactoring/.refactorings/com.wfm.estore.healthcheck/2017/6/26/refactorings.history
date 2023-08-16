@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;TestConfig.properties&apos; to &apos;com.wholefoods.mobile&apos;&#x0A;- Original project: &apos;com.wfm.estore.healthcheck&apos;&#x0A;- Destination element: &apos;com.wholefoods.mobile&apos;&#x0A;- Original element: &apos;TestConfig.properties&apos;" description="Copy file" destination="=com.wholefoods.mobile" element1="TestConfig.properties" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1498579903179" units="0" version="1.0"/>
+</session>

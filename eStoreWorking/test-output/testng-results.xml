@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="3" passed="3">
+  <reporter-output>
+    <line>
+      <![CDATA[===Browser Session Started===]]>
+    </line>
+    <line>
+      <![CDATA[===Application started===]]>
+    </line>
+    <line>
+      <![CDATA[===Browser Session End===]]>
+    </line>
+    <line>
+      <![CDATA[===Browser Session Started===]]>
+    </line>
+    <line>
+      <![CDATA[===Application started===]]>
+    </line>
+    <line>
+      <![CDATA[===Browser Session End===]]>
+    </line>
+    <line>
+      <![CDATA[===Browser Session Started===]]>
+    </line>
+    <line>
+      <![CDATA[===Application started===]]>
+    </line>
+    <line>
+      <![CDATA[===Browser Session End===]]>
+    </line>
+  </reporter-output>
+  <suite name="Suite" duration-ms="122368" started-at="2017-04-05T16:24:09Z" finished-at="2017-04-05T16:26:11Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="122368" started-at="2017-04-05T16:24:09Z" finished-at="2017-04-05T16:26:11Z">
+      <class name="com.estore.tests.VariableWeightItem">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.estore.tests.VariableWeightItem@2f686d1f]" name="beforeMethod" is-config="true" duration-ms="5499" started-at="2017-04-05T11:25:31Z" finished-at="2017-04-05T11:25:37Z">
+          <reporter-output>
+            <line>
+              <![CDATA[===Browser Session Started===]]>
+            </line>
+            <line>
+              <![CDATA[===Application started===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="variableWeight()[pri:0, instance:com.estore.tests.VariableWeightItem@2f686d1f]" name="variableWeight" duration-ms="33626" started-at="2017-04-05T11:25:37Z" description="Test case for Variable Weight Item" finished-at="2017-04-05T11:26:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- variableWeight -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.estore.tests.VariableWeightItem@2f686d1f]" name="tearDown" is-config="true" duration-ms="568" started-at="2017-04-05T11:26:11Z" finished-at="2017-04-05T11:26:11Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=variableWeight status=SUCCESS method=VariableWeightItem.variableWeight()[pri:0, instance:com.estore.tests.VariableWeightItem@2f686d1f] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[===Browser Session End===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.estore.tests.VariableWeightItem -->
+      <class name="com.estore.tests.DeliveryOnly">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:com.estore.tests.DeliveryOnly@59ec2012]" name="beforeSuite" is-config="true" duration-ms="17" started-at="2017-04-05T11:24:09Z" finished-at="2017-04-05T11:24:09Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.estore.tests.DeliveryOnly@59ec2012]" name="beforeMethod" is-config="true" duration-ms="7024" started-at="2017-04-05T11:24:09Z" finished-at="2017-04-05T11:24:16Z">
+          <reporter-output>
+            <line>
+              <![CDATA[===Browser Session Started===]]>
+            </line>
+            <line>
+              <![CDATA[===Application started===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="deliveryOnly()[pri:0, instance:com.estore.tests.DeliveryOnly@59ec2012]" name="deliveryOnly" duration-ms="33559" started-at="2017-04-05T11:24:16Z" description="Test case for DelieryOnly Item" finished-at="2017-04-05T11:24:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deliveryOnly -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.estore.tests.DeliveryOnly@59ec2012]" name="tearDown" is-config="true" duration-ms="574" started-at="2017-04-05T11:24:49Z" finished-at="2017-04-05T11:24:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=deliveryOnly status=SUCCESS method=DeliveryOnly.deliveryOnly()[pri:0, instance:com.estore.tests.DeliveryOnly@59ec2012] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[===Browser Session End===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.estore.tests.DeliveryOnly -->
+      <class name="com.estore.tests.TaxedItem">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.estore.tests.TaxedItem@4cf777e8]" name="beforeMethod" is-config="true" duration-ms="6252" started-at="2017-04-05T11:24:50Z" finished-at="2017-04-05T11:24:56Z">
+          <reporter-output>
+            <line>
+              <![CDATA[===Browser Session Started===]]>
+            </line>
+            <line>
+              <![CDATA[===Application started===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method status="PASS" signature="taxedItem()[pri:0, instance:com.estore.tests.TaxedItem@4cf777e8]" name="taxedItem" duration-ms="34663" started-at="2017-04-05T11:24:56Z" description="Test case for Taxed Item" finished-at="2017-04-05T11:25:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- taxedItem -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:com.estore.tests.TaxedItem@4cf777e8]" name="tearDown" is-config="true" duration-ms="574" started-at="2017-04-05T11:25:31Z" finished-at="2017-04-05T11:25:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=taxedItem status=SUCCESS method=TaxedItem.taxedItem()[pri:0, instance:com.estore.tests.TaxedItem@4cf777e8] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[===Browser Session End===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.estore.tests.TaxedItem -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>

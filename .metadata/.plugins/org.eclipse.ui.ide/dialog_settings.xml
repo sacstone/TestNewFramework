@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+		<item value="/Users/rameshdhanekula/Downloads/wfmdigitalweb-ios-wholefoodsmarket-app-testautomation-dcc5b14f2c4f"/>
+		<item value="/Users/rameshdhanekula/Downloads/wfmdigitalweb-ios-wholefoodsmarket-app-testautomation-0bf624b4037b"/>
+		<item value="/Users/rameshdhanekula/Downloads"/>
+		<item value="/Users/rameshdhanekula/Downloads/wfmdigitalweb-ios-wholefoodsmarket-app-testautomation-a3588641e213"/>
+		<item value="/Users/rameshdhanekula/Desktop/EclipseWorkspace/Chapter14_DataDrivenFW"/>
+	</list>
+	<section name="WORKBENCH_SETTINGS">
+		<list key="ENABLED_TRANSFERS">
+		</list>
+	</section>
+	<section name="NewWizardAction">
+		<item value="org.eclipse.buildship.ui.wizard.project.creation" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui.Basic"/>
+			<item value="org.eclipse.buildship.ui.creationwizards"/>
+			<item value="org.eclipse.m2e"/>
+		</list>
+	</section>
+	<section name="ChooseWorkspaceDialogSettings">
+		<item value="302" key="DIALOG_X_ORIGIN"/>
+		<item value="265" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="BasicNewProjectResourceWizard">
+	</section>
+</section>

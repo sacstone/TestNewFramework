@@ -1,0 +1,383 @@
+package com.estore.testcases;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.List;
+import java.util.TimeZone;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.apache.commons.codec.binary.Base64;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+import com.estore.pages.SpinternetDefaultStoreHome;
+import com.estore.pages.SpinternetHome;
+import com.estore.pages.SpinternetLogin;
+import com.estore.pages.SpinternetProductsList;
+import com.estore.pages.SpinternetStoreFinderResults;
+import com.estore.pages.SpinternetStoreProductDetails;
+import com.estore.pages.SpinternetStoreProducts;
+import com.estore.pages.TMCreateOrder;
+import com.estore.util.TestBase;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
+
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+
+import org.apache.commons.codec.binary.Base64;
+import org.testng.annotations.Test;
+
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.Unirest;
+import com.mashape.unirest.http.exceptions.UnirestException;
+
+public class SpinternetGroupComponentsHaveZeroQty extends TestBase {
+
+	// TestRail : 557914
+
+	private String Finalkey = null;
+
+	@Test(priority = 1)
+	public void getKey() {
+
+		// Date currentTime = new Date();
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss z");
+		// Give it to me in GMT time.
+		sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
+		String date_string = sdf.format(calendar.getTime());
+		System.out.println(sdf.format(calendar.getTime()));
+		String public_key = "b3c5a917-73d2-4c76-b069-b6ecb61bc57e";
+		String private_key = "2a33dbcb-4448-4282-af49-93f0a4eaf822";
+		String to_hash = date_string + public_key;
+
+		try {
+			Mac md5_HMAC = Mac.getInstance("HmacMD5");
+			SecretKeySpec secret_key = new SecretKeySpec(private_key.getBytes(), "HmacMD5");
+			md5_HMAC.init(secret_key);
+
+			String hash = Base64.encodeBase64String(md5_HMAC.doFinal(to_hash.getBytes()));
+			Finalkey = String.join("|", new String[] { public_key.toString(), date_string, hash.toString() });
+			System.out.println("encode bytes is " + hash);
+			System.out.println("key is " + Finalkey);
+		} catch (Exception e) {
+			System.out.println("Error");
+		}
+
+	}
+
+	@Test(priority = 2)
+
+	public void turnOnInventoryAndSetQuantityToZero() throws UnirestException {
+		// Gc1 --turn on inventory
+		HttpResponse<String> response = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("content-type", "text/plain").header("cache-control", "no-cache")
+				.header("postman-token", "81a34525-18fb-fa1e-582d-6542c5cc2bde")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVTOGGLE\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"3473\">\r            <INVENTORYTYPE>Item</INVENTORYTYPE>\r<!--Off   |   Item   |   Options-->\r            <DOGENERATEOPTIONS>True</DOGENERATEOPTIONS>\r<!--True   |   False-->\r<!--Optional,   default   to   True,   does   nothing   unless   INVENTORYTYPE   is   'Options'-->       </ITEM>\r</SVC>")
+				.asString();
+
+		String s = response.getBody();
+		System.out.println(s);
+
+		// GC1 set inventory
+
+		HttpResponse<String> response1 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("cache-control", "no-cache").header("postman-token", "4c28378d-9c49-927a-7318-fe160f15c44d")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVSET\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"3473\">\r      <QIS>0</QIS>\r      <ITEMOPTIONS>\r      <OSD   ID=\"123\">\r      <QIS>10</QIS>\r      </OSD>\r      <OSD   ID=\"456\">\r      <QIS>15</QIS>\r      </OSD>\r      </ITEMOPTIONS>\r      </ITEM>\r</SVC>")
+				.asString();
+
+		String s1 = response1.getBody();
+		System.out.println(s1);
+
+		// Gc2 --turn on inventory
+		HttpResponse<String> response2 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("content-type", "text/plain").header("cache-control", "no-cache")
+				.header("postman-token", "81a34525-18fb-fa1e-582d-6542c5cc2bde")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVTOGGLE\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"24967\">\r            <INVENTORYTYPE>Item</INVENTORYTYPE>\r<!--Off   |   Item   |   Options-->\r            <DOGENERATEOPTIONS>True</DOGENERATEOPTIONS>\r<!--True   |   False-->\r<!--Optional,   default   to   True,   does   nothing   unless   INVENTORYTYPE   is   'Options'-->       </ITEM>\r</SVC>")
+				.asString();
+
+		String s2 = response2.getBody();
+		System.out.println(s2);
+
+		// GC2 set inventory
+
+		HttpResponse<String> response3 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("cache-control", "no-cache").header("postman-token", "4c28378d-9c49-927a-7318-fe160f15c44d")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVSET\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"24967\">\r      <QIS>0</QIS>\r      <ITEMOPTIONS>\r      <OSD   ID=\"123\">\r      <QIS>10</QIS>\r      </OSD>\r      <OSD   ID=\"456\">\r      <QIS>15</QIS>\r      </OSD>\r      </ITEMOPTIONS>\r      </ITEM>\r</SVC>")
+				.asString();
+
+		String s3 = response3.getBody();
+		System.out.println(s3);
+
+		// Gc3 --turn on inventory
+		HttpResponse<String> response4 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("content-type", "text/plain").header("cache-control", "no-cache")
+				.header("postman-token", "81a34525-18fb-fa1e-582d-6542c5cc2bde")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVTOGGLE\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"14822\">\r            <INVENTORYTYPE>Item</INVENTORYTYPE>\r<!--Off   |   Item   |   Options-->\r            <DOGENERATEOPTIONS>True</DOGENERATEOPTIONS>\r<!--True   |   False-->\r<!--Optional,   default   to   True,   does   nothing   unless   INVENTORYTYPE   is   'Options'-->       </ITEM>\r</SVC>")
+				.asString();
+
+		String s4 = response4.getBody();
+		System.out.println(s4);
+
+		// GC3 set inventory
+
+		HttpResponse<String> response5 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("cache-control", "no-cache").header("postman-token", "4c28378d-9c49-927a-7318-fe160f15c44d")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVSET\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"14822\">\r      <QIS>0</QIS>\r      <ITEMOPTIONS>\r      <OSD   ID=\"123\">\r      <QIS>10</QIS>\r      </OSD>\r      <OSD   ID=\"456\">\r      <QIS>15</QIS>\r      </OSD>\r      </ITEMOPTIONS>\r      </ITEM>\r</SVC>")
+				.asString();
+
+		String s5 = response5.getBody();
+		System.out.println(s5);
+
+	}
+
+	 @Test(priority = 3)
+	public void verifyGroupComponentsWithZeroQtyDisplayMessage() throws InterruptedException {
+
+		driver.get("https://shop-admin-qa.ecomm.wholefoodsmarket.com/spinternet/e-commerce/orderList.aspx");
+
+		Thread.sleep(2000);
+
+		SpinternetLogin login = new SpinternetLogin(driver);
+		login.userName().sendKeys("2091092@wholefoods.com");
+		login.signOnButton().click();
+		Thread.sleep(1000);
+		login.password().sendKeys("Mather3624$");
+		login.signOnButton().click();
+		Thread.sleep(2000);
+
+		SpinternetHome home = new SpinternetHome(driver);
+		home.clickOnCatalogOperation("Product List");
+
+		SpinternetProductsList pList = new SpinternetProductsList(driver);
+
+		pList.selectRegion("CE");
+
+		Thread.sleep(2000);
+
+		SpinternetProductsList pList1 = new SpinternetProductsList(driver);
+
+		Thread.sleep(2000);
+		pList1.selectCategory("Catalog G");
+
+		//
+		// WebElement table =
+		// driver.findElement(By.xpath("//table[@id='ctl00_ContentPlaceHolder1_gvProducts']"));
+		// List<WebElement> Rows = table.findElements(By.tagName("tr"));
+		// System.out.println(Rows.size());
+		//
+		// for (int i = 2; i < Rows.size(); i++) {
+		//
+		// WebElement app = driver
+		// .findElement(By.xpath("//*[@id='ctl00_ContentPlaceHolder1_gvProducts']/tbody/tr["
+		// + i + "]/td[2]"));
+		// System.out.println(app.getText());
+		// if (app.getText().contains("GM -1 (group)")) {
+		//
+		// WebElement a = driver.findElement(
+		// By.xpath("//*[@id='ctl00_ContentPlaceHolder1_gvProducts']/tbody/tr["
+		// + i + "]/td[2]/a/strong"));
+		// a.click();
+		// break;
+		// }
+		//
+		// }
+		//
+		//
+		//
+
+		Thread.sleep(2000);
+
+		pList1.selectItemFromCE("GM -1 (group)");
+
+		Thread.sleep(2000);
+		pList1.clickOnProductDetails("Item Components");
+
+		Thread.sleep(2000);
+
+		String a = null;
+		WebElement table = driver.findElement(By.xpath("//table[@id='tblList']/tbody"));
+		List<WebElement> Rows = table.findElements(By.tagName("tr"));
+
+		Assert.assertTrue(Rows.size() == 3, "More than 3 items in the group");
+
+		for (int i = 0; i < Rows.size(); i++) {
+
+			List<WebElement> Cols = driver.findElements(By.tagName("td"));
+
+			for (WebElement cols : Cols) {
+
+				a = cols.getText();
+
+				if (a.contains("GC-1")) {
+
+					Assert.assertTrue(a.contains("GC-1"), "Do not see GC -1");
+				}
+
+				if (a.contains("GC-2")) {
+
+					Assert.assertTrue(a.contains("GC-2"), "Do not see GC -2");
+				}
+
+				if (a.contains("GC-3")) {
+
+					Assert.assertTrue(a.contains("GC-3"), "Do not see GC -3");
+				}
+
+			}
+
+		}
+
+		pList1.clickOnBreadcrumbElement("Catalog G").click();
+		
+		pList1.clickOnSpinternetHome().click();
+		Thread.sleep(1000);
+		
+		SpinternetHome home2 = new SpinternetHome(driver);
+		home2.clickOnFulfillmnet().click();
+		Thread.sleep(1000);
+		home2.clickOnOrderOperation("Create Order");
+		
+		String winHandleBefore = driver.getWindowHandle();
+
+		Thread.sleep(1000);
+		
+		TMCreateOrder order = new TMCreateOrder(driver);
+		
+		for (String winHandle : driver.getWindowHandles()) {
+			driver.switchTo().window(winHandle);
+		}
+		
+		order.selectCountry("USA");
+		Thread.sleep(1000);
+		order.selectState("California");
+		Thread.sleep(1000);
+		order.goButton().click();
+		Thread.sleep(1000);
+		
+		SpinternetStoreFinderResults stores = new SpinternetStoreFinderResults(driver);
+		stores.clickOnPlaceOrderLinkForXOX("Estore Testing (XOX)");
+		
+		Thread.sleep(1000);
+		
+		SpinternetDefaultStoreHome sphome = new SpinternetDefaultStoreHome(driver);
+		sphome.clickOnProduct("Catalog G");
+
+		Thread.sleep(1000);
+		SpinternetStoreProducts sproducts = new SpinternetStoreProducts(driver);
+
+		sproducts.clickOnProduct("GM -1");
+
+		Thread.sleep(2000);
+		SpinternetStoreProductDetails details = new SpinternetStoreProductDetails(driver);
+		
+		List<WebElement> list = details.getSelectOptions();
+		
+		Assert.assertTrue(list.size() == 1, "More than three options");
+		Thread.sleep(20000);
+
+	}
+
+//	@Test(priority = 4)
+
+	public void turnOffInventory() throws UnirestException {
+		// Gc1 --turn off inventory
+		HttpResponse<String> response = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("content-type", "text/plain").header("cache-control", "no-cache")
+				.header("postman-token", "81a34525-18fb-fa1e-582d-6542c5cc2bde")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVTOGGLE\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"3473\">\r            <INVENTORYTYPE>Off</INVENTORYTYPE>\r<!--Off   |   Item   |   Options-->\r            <DOGENERATEOPTIONS>True</DOGENERATEOPTIONS>\r<!--True   |   False-->\r<!--Optional,   default   to   True,   does   nothing   unless   INVENTORYTYPE   is   'Options'-->       </ITEM>\r</SVC>")
+				.asString();
+
+		String s = response.getBody();
+
+		System.out.println(s);
+
+		// GC1 set inventory
+
+		HttpResponse<String> response1 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("cache-control", "no-cache").header("postman-token", "4c28378d-9c49-927a-7318-fe160f15c44d")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVSET\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"3473\">\r      <QIS>0</QIS>\r      <ITEMOPTIONS>\r      <OSD   ID=\"123\">\r      <QIS>10</QIS>\r      </OSD>\r      <OSD   ID=\"456\">\r      <QIS>15</QIS>\r      </OSD>\r      </ITEMOPTIONS>\r      </ITEM>\r</SVC>")
+				.asString();
+
+		String s1 = response1.getBody();
+
+		System.out.println(s1);
+
+		// Gc2 --turn off inventory
+		HttpResponse<String> response2 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("content-type", "text/plain").header("cache-control", "no-cache")
+				.header("postman-token", "81a34525-18fb-fa1e-582d-6542c5cc2bde")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVTOGGLE\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"24967\">\r            <INVENTORYTYPE>Off</INVENTORYTYPE>\r<!--Off   |   Item   |   Options-->\r            <DOGENERATEOPTIONS>True</DOGENERATEOPTIONS>\r<!--True   |   False-->\r<!--Optional,   default   to   True,   does   nothing   unless   INVENTORYTYPE   is   'Options'-->       </ITEM>\r</SVC>")
+				.asString();
+
+		String s2 = response2.getBody();
+
+		System.out.println(s2);
+
+		// GC2 set inventory
+
+		HttpResponse<String> response3 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("cache-control", "no-cache").header("postman-token", "4c28378d-9c49-927a-7318-fe160f15c44d")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVSET\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"24967\">\r      <QIS>0</QIS>\r      <ITEMOPTIONS>\r      <OSD   ID=\"123\">\r      <QIS>10</QIS>\r      </OSD>\r      <OSD   ID=\"456\">\r      <QIS>15</QIS>\r      </OSD>\r      </ITEMOPTIONS>\r      </ITEM>\r</SVC>")
+				.asString();
+
+		String s3 = response3.getBody();
+
+		System.out.println(s3);
+
+		// Gc3 --turn off inventory
+		HttpResponse<String> response4 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("content-type", "text/plain").header("cache-control", "no-cache")
+				.header("postman-token", "81a34525-18fb-fa1e-582d-6542c5cc2bde")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVTOGGLE\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"14822\">\r            <INVENTORYTYPE>Off</INVENTORYTYPE>\r<!--Off   |   Item   |   Options-->\r            <DOGENERATEOPTIONS>True</DOGENERATEOPTIONS>\r<!--True   |   False-->\r<!--Optional,   default   to   True,   does   nothing   unless   INVENTORYTYPE   is   'Options'-->       </ITEM>\r</SVC>")
+				.asString();
+
+		String s4 = response4.getBody();
+
+		System.out.println(s4);
+
+		// GC3 set inventory
+
+		HttpResponse<String> response5 = Unirest
+				.post("https://shop-api-qa.ecomm.wholefoodsmarket.com/v1.3/RequestManager/Server.aspx")
+				.header("cache-control", "no-cache").header("postman-token", "4c28378d-9c49-927a-7318-fe160f15c44d")
+				.body("<SVC   CLIENTID=\"99999\"   METHOD=\"INVSET\">\r      <KEY>" + Finalkey
+						+ "</KEY>\r      <STORE>721</STORE>\r      <ITEM   ID=\"14822\">\r      <QIS>0</QIS>\r      <ITEMOPTIONS>\r      <OSD   ID=\"123\">\r      <QIS>10</QIS>\r      </OSD>\r      <OSD   ID=\"456\">\r      <QIS>15</QIS>\r      </OSD>\r      </ITEMOPTIONS>\r      </ITEM>\r</SVC>")
+				.asString();
+
+		String s5 = response5.getBody();
+
+		System.out.println(s5);
+
+	}
+
+}

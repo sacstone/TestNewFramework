@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.estore.pages.CheckOut&apos; to &apos;CheckOutStepOne&apos;&#x0A;- Original project: &apos;eStore&apos;&#x0A;- Original element: &apos;com.estore.pages.CheckOut&apos;&#x0A;- Renamed element: &apos;com.estore.pages.CheckOutStepOne&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;CheckOut&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.estore.pages{CheckOut.java[CheckOut" matchStrategy="1" name="CheckOutStepOne" qualified="false" references="true" similarDeclarations="false" stamp="1485287352755" textual="false" version="1.0"/>
+</session>
